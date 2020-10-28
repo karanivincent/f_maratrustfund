@@ -2,7 +2,10 @@
   <header class=" sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 ">
     <div class="flex items-center justify-between px-4 py-3 sm:p-0">
       <div>
-        <h3 class="font-bold text-gray-800 text-2xl">MaraTrustFunds</h3>
+        <router-link to="/">
+                <h3 class="font-bold text-gray-800 text-2xl">MaraTrustFunds</h3>
+
+        </router-link>
       </div>
       <div class="sm:hidden">
         <button @click="isOpen = !isOpen" type="button" class="block text-gray-500 hover:text-white focus:text-white focus:outline-none">
@@ -14,11 +17,12 @@
       </div>
     </div>
     <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-      <a href="#" class="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200">Portolio</a>
-      <a href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">About Us</a>
-            <a href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Contact Us</a>
+      <div router to="/" class="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200">Portolio</div>
+      <div href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">About Us</div>
+            <div href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Contact Us</div>
+      <router-link to="/login" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Login
 
-      <a href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Login</a>
+      </router-link>
     </nav>
   </header>
 </template>

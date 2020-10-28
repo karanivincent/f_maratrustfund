@@ -1,44 +1,63 @@
 import { createStore } from 'vuex'
-import { vuexfireMutations, firestoreAction } from 'vuexfire'
-import db from '@/firebase'
 import axios from 'axios'
+
+const Testing = 'http://127.0.0.1:8000/api/';
+const BACKENDURL = Testing;
+
+// const pythonanywhere = 'https://vincentkarani.pythonanywhere.com/api/';
+// const BACKENDURL = pythonanywhere;
+
+
 export default createStore({
   state: {
-    tenders: [],
-    todos: []
-
+    projects: [],
+    categories: []
   },
   getters: {
-    allTenders: (state) => state.tenders,
-    allTodos: (state) => state.todos
+    allProjects: (state) => state.projects,
+    allCategories: (state) => state.categories,
 
   },
   mutations: {
-    ...vuexfireMutations,
-    setTodos: (state, todos) => state.todos = todos,
-    pushTender: (state, tender) => state.tenders.push(tender)
+    setProjects: (state, projects) => state.projects = projects,
+    addProject: (state, project) => state.projects.push(project),
+    setCategories: (state, categories) => state.categories = categories,
+
   },
   actions: {
-    async fetchTodos({ commit }) {
-      const response = await axios.get('https://jsonplaceholder.typicode.com/todos');
-      console.log(response.data);
-      commit('setTodos', response.data)
+    async fetchProjects({ commit }) {
+      const response = await axios.get(BACKENDURL + 'projects/')
+        .catch((error) => {
+          console.log(error)
+        })
+      commit('setProjects', response.data)
+      return response.data
     },
 
-    addTender({ commit }, tender) {
-      commit('pushTender', tender)
-      return (this.state.tenders)
+    async addProject({ commit }, newProject) {
+      const response = await axios.post(BACKENDURL + 'projects/', newProject)
+        .catch((error) => {
+          console.log(error)
+        })
+      commit('addProject', response.data)
+      return response.data
+    },
+    async fetchCategories({ commit }) {
+      const token = localStorage.getItem('user-token')
+      const response = await axios.get(BACKENDURL + 'categories/', {
+        headers: {
+          'Authorization': `Token ${token}`
+        }
+      })
+        .catch((error) => {
+          console.log(error)
+        })
+      commit('setCategories', response.data)
+      return response.data
     },
 
-    bindTenders: firestoreAction(({ bindFirestoreRef }) => {
-
-      return bindFirestoreRef('tenders', db.collection('tenders'))
-    }),
-
-    // unbindTenders: firestoreAction(({ unbindFirestoreRef }) => {
-    //   unbindFirestoreRef('tenders')
-    // })
   },
+
   modules: {
   }
 })

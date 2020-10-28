@@ -2,56 +2,57 @@
     <div class="w-full px-32 pt-6 pb-24">
         <Form @submit="onSubmit" v-slot="{ errors }" :validation-schema="validationRules">
             <div class="w-full flex flex-col mb-2">
-                <label for="tender_name" class="block py-2 uppercase font-bold text-xs text-gray-700">name</label>
-                <Field as="input" type="text" name="tender_name"  placeholder="Enter name of tender"
-                    v-model="tender.name"
+                <label for="project_name" class="block py-2 uppercase font-bold text-xs text-gray-700">name</label>
+                <Field as="input" type="text" name="project_name"  placeholder="Enter name of project"
+                    v-model="project.name"
                     class="block appearance-none p-2 rounded text-gray-700 outline-none bg-gray-100 border border-gray-200 focus:border-gray-500 focus:bg-white " />
-                <span class=" text-red-500 text-xs italic" >{{errors.tender_name}}</span>
+                <span class=" text-red-500 text-xs italic" >{{errors.project_name}}</span>
             </div>
             <div class="w-full flex flex-col mb-2">
-                <label for="tender_description"
+                <label for="project_description"
                     class="block my-1 uppercase font-bold text-xs text-gray-700 tracking-wide ">description</label>
-                <Field as="textarea" name="tender_description"  placeholder="Enter a short description"
-                    v-model="tender.description"
+                <Field as="textarea" name="project_description"  placeholder="Enter a short description"
+                    v-model="project.description"
                     class="block appearance-none h-48 p-3 resize-none rounded outline-none bg-gray-100 text-gray-700 border focus:border-gray-500 border-gray-200 focus:bg-white "></Field>
-                <span class=" text-red-500 text-xs italic" >{{errors.tender_description}}</span>
+                <span class=" text-red-500 text-xs italic" >{{errors.project_description}}</span>
             </div>
             <div>
                 <label for="deadline"
                     class="block my-1 uppercase font-bold text-xs text-gray-700 tracking-wide ">Deadline</label>
                 <Field as="input" type="date" name="deadline" 
-                    v-model="tender.application.closed"
+                    v-model="project.closed_on"
                     class="block appearance-none p-2 rounded text-gray-700 outline-none bg-gray-100 border border-gray-200 focus:border-gray-500 focus:bg-white "/>
                 <span class=" text-red-500 text-xs italic" >{{errors.deadline}}</span>
             </div>
             <div class="w-full flex flex-col mb-2">
-                <label for="tender_category"
+                <label for="project_category"
                     class="block py-2 uppercase font-bold text-xs text-gray-700">Category</label>
                 <Field
                     as="select"
                     
-                    name="tender_category"
+                    name="project_category"
                     
-                    v-model="tender.category"
+                    v-model="project.category"
                     class="block appearance-none p-2 rounded text-gray-700 outline-none bg-gray-100 border border-gray-200 focus:border-gray-500 focus:bg-white ">
-                    <option selected>category1</option>
-                    <option>category2</option>
+                    <option v-for="(category, i) in allCategories" :key="i" :value="category.id">{{category.name}}</option>
                 </Field>
-                <span class=" text-red-500 text-xs italic" >{{errors.tender_category}}</span>
+                <span class=" text-red-500 text-xs italic" >{{errors.project_category}}</span>
             </div>
             <div class="w-full flex flex-col mb-2">
-                <label for="tender_state" class="block py-2 uppercase font-bold text-xs text-gray-700">state</label>
+                <label for="project_state" class="block py-2 uppercase font-bold text-xs text-gray-700">state</label>
                  <Field
                     as="select"
-                    name="tender_state"
+                    name="project_state"
                     
-                    v-model="tender.state"
+                    v-model="project.state"
                     class="block appearance-none p-2 rounded text-gray-700 outline-none bg-gray-100 border border-gray-200 focus:border-gray-500 focus:bg-white ">
-                    <option selected>Tendering</option>
-                    <option>Active</option>
-                    <option>Finished</option>
+                    <option value="tendering" selected>Tendering</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                    <option value="stalled">Stalled</option>
+
                 </Field>
-                <span class=" text-red-500 text-xs italic" >{{errors.tender_state}}</span>
+                <span class=" text-red-500 text-xs italic" >{{errors.project_state}}</span>
             </div>
             <div class="md:flex md:items-center">
                 <div class="md:w-1/3">
@@ -74,9 +75,7 @@ import {
     Form
 } from 'vee-validate';
 import * as yup from 'yup';
-// import format from 'date-fns/format';
-import db from '@/firebase';
-
+import { mapActions, mapGetters } from 'vuex'
 export default {
     components: {
         Field,
@@ -85,60 +84,45 @@ export default {
     data() {
 
         const validationRules = yup.object().shape({
-            tender_name: yup.string().required().label('Tender name'),
-            tender_description: yup.string().required().label('Description'),
+            project_name: yup.string().required().label('Project name'),
+            project_description: yup.string().required().label('Description'),
             deadline: yup.string().required().label('Deadline'),
-            tender_category: yup.string().required().label('Category'),
-            tender_state: yup.string().required().label('Tender State')
+            project_category: yup.string().required().label('Category'),
+            project_state: yup.string().required().label('Project State')
   
         })
         return {
             validationRules,
-            tender: {
-                application: {
-                    opened: '',
-                    closed: ''
-                },
-                category: '',
-                description: '',
+            project: {
                 name: '',
+                description: '',
                 state: '',
-                photos:[]
+                category: '',
+                closed_on: '',
             },
             loading: false
         };
     },
-
+    computed: mapGetters(['allCategories']),
     methods: {
+        ...mapActions(['addProject', 'fetchCategories']),
         onSubmit() {
             this.loading = true
-            const opened_date = new Date()
-            const closed_date = new Date(this.tender.application.closed)
-            this.tender.application.opened = opened_date
-            this.tender.application.closed = closed_date
-
-            db.collection('tenders')
-            .add(this.tender)
-            .then(( res )=>{
-                this.loading = false
+            this.addProject(this.project)
+            .then((res)=>{
                 console.log(res)
-                this.$emit('tender-added', res)
             })
-            .catch((error) => {
-                console.log(error)
-            })
-
-            // console.log("Opened date: " + opened_date + ', ' + "Closed date: " + closed_date)
-
-
-        },
-        convertDate() {
-            console.log(this.tender.application.closed)
-            const mydate = new Date(this.tender.application.closed);
-            console.log(mydate.toLocaleDateString())
-
         }
+
     },
+      created() {
+    this.fetchCategories().then((res)=>{
+      console.log(res)
+    }).catch((err)=>{
+      console.log(err)
+    })
+   
+  },
 };
 </script>
 
