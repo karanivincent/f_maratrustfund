@@ -11,17 +11,20 @@ const BACKENDURL = Testing;
 export default createStore({
   state: {
     projects: [],
-    categories: []
+    categories: [],
+    userProjects: null
   },
   getters: {
     allProjects: (state) => state.projects,
     allCategories: (state) => state.categories,
+    myProjects: (state) => state.userProjects
 
   },
   mutations: {
     setProjects: (state, projects) => state.projects = projects,
     addProject: (state, project) => state.projects.push(project),
     setCategories: (state, categories) => state.categories = categories,
+    setUserProjects: (state, userProjects) => state.userProjects = userProjects
 
   },
   actions: {
@@ -32,6 +35,16 @@ export default createStore({
         })
       commit('setProjects', response.data)
       return response.data
+    },
+
+    async userProjects({ commit }) {
+      var user = localStorage.getItem('user-detail')
+      user = JSON.parse(user)
+      const response = await axios.post(`${BACKENDURL}my_projects/`,
+        { user_id: 7 },
+        { headers: { 'Authorization': `Token ${user.token}` } })
+        .then((response) => commit('setUserProjects', response.data))
+        .catch(() => { console.log(response); })
     },
 
     async addProject({ commit }, newProject) {

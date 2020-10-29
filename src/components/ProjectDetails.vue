@@ -1,7 +1,7 @@
 <template>
 <div class="parent w-full h-auto min-h-full bg-gray-100 mx-auto mt-4 pt-4 ">
     <div class="card">
-        <div class="card-title text-gray-900 text-lg font-semibold text-green-600 px-2">
+        <div class="card-title text-lg font-semibold text-green-600 px-2">
           <h1>
             {{project.name}}
           </h1>

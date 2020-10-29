@@ -17,12 +17,15 @@
       </div>
     </div>
     <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pt-2 pb-4 sm:flex sm:p-0">
-      <div router to="/" class="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200">Portolio</div>
-      <div href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">About Us</div>
-            <div href="#" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Contact Us</div>
-      <router-link to="/login" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Login
+            <router-link to="/tenders" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Projects</router-link>
+      <router-link to="/tenders" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Tenders</router-link>
 
-      </router-link>
+      <div router to="/" class="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200">Portolio</div>
+      <router-link to="/about" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">About Us</router-link>
+      <router-link to="/about" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Contact Us</router-link>
+            <router-link to="/my-projects" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">My Projects</router-link>
+
+      <router-link to="/login" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Login</router-link>
     </nav>
   </header>
 </template>

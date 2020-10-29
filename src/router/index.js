@@ -3,9 +3,11 @@ import Tenders from '../components/Tenders'
 import Login from '../components/Login'
 import Home from '../components/Home'
 import ProjectDetails from '../components/ProjectDetails'
+import MyProjects from '../components/MyProjects'
+import About from '../components/About'
 const routes = [
   {
-    path: '/',
+    path: '/tenders',
     name: Home,
     component: Tenders
   },
@@ -20,13 +22,23 @@ const routes = [
     component: Tenders
   },
   {
+    path: '/my-projects',
+    name: 'MyProjects',
+    component: MyProjects
+  },
+  {
     path: '/project/:id',
     name: 'ProjectDetails',
     component: ProjectDetails,
     props: (route) => ({
       ...route.params
     })
-  }
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component: About
+  },
 ]
 
 const router = createRouter({
