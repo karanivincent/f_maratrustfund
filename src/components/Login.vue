@@ -43,16 +43,14 @@
                         </div>
                         <hr class="mb-6 border-t" />
                         <div class="text-center">
-                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                href="./register.html">
+                            <router-link to="/register" class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                                 Create an Account!
-                            </a>
+                            </router-link>
                         </div>
                         <div class="text-center">
-                            <a class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                href="./forgot-password.html">
+                            <router-link to='/register' class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                                 Forgot Password?
-                            </a>
+                            </router-link >
                         </div>
                 </Form>
                 </div>

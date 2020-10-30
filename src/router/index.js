@@ -5,6 +5,8 @@ import Home from '../components/Home'
 import ProjectDetails from '../components/ProjectDetails'
 import MyProjects from '../components/MyProjects'
 import About from '../components/About'
+import Signup from '../components/Signup'
+
 const routes = [
   {
     path: '/tenders',
@@ -38,6 +40,11 @@ const routes = [
     path: '/about',
     name: 'About',
     component: About
+  },
+  {
+    path: '/register',
+    name: 'Signup',
+    component: Signup
   },
 ]
 
