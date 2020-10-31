@@ -23,6 +23,8 @@
       <div router to="/" class="block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200">Portolio</div>
       <router-link to="/about" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">About Us</router-link>
       <router-link to="/about" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Contact Us</router-link>
+            <router-link to="/reset-password" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Applications</router-link>
+
             <router-link to="/my-projects" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">My Projects</router-link>
 
       <router-link to="/login" class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3">Login</router-link>

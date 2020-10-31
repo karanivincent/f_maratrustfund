@@ -6,6 +6,7 @@ import ProjectDetails from '../components/ProjectDetails'
 import MyProjects from '../components/MyProjects'
 import About from '../components/About'
 import Signup from '../components/Signup'
+import ResetPassword from '../components/ResetPassword'
 
 const routes = [
   {
@@ -45,6 +46,11 @@ const routes = [
     path: '/register',
     name: 'Signup',
     component: Signup
+  },
+  {
+    path: '/reset-password',
+    name: 'ResetPassword',
+    component: ResetPassword
   },
 ]
 

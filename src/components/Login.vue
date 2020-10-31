@@ -48,7 +48,7 @@
                             </router-link>
                         </div>
                         <div class="text-center">
-                            <router-link to='/register' class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
+                            <router-link to='/reset-password' class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
                                 Forgot Password?
                             </router-link >
                         </div>

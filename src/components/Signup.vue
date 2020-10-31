@@ -152,13 +152,13 @@ export default {
         .label("Email Address"),
       password1: yup
         .string()
-        .required()
+        .required("Password is required")
         .label("Password"),
 
       password2: yup
         .string()
         .required()
-        .label("Confirmation Password"),
+        .oneOf([yup.ref('password1'), null], 'Passwords must match')
     });
     return {
       validationRules,
