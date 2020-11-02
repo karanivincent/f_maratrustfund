@@ -4,7 +4,7 @@
       <div v-if="step == 'email'" >
         
         <Form @submit="sendOtp" v-slot="{ errors }" class="flex flex-col">
-          <h2 class="  font-semibold text-lg text-gray-700 mx-auto py-2">
+          <h2 class="  font-semibold text-green-700 text-lg  mx-auto py-2">
           Enter registered email address</h2
         >
           <Field
@@ -13,9 +13,11 @@
             type="email"
             :rules="emailRules"
             v-model="details.email"
-            class="py-2 w-2/3 mx-auto block appearance-none p-2 text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
+            class=" pt-4 w-1/3 mx-auto block appearance-none  font-medium text-gray-700 text-center outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
           />
           <p class=" mx-auto text-sm font-semibold italic text-red-500">{{ errors.email }}</p>
+          <p class=" mx-auto text-sm font-semibold italic text-red-500">{{apiErrors.email}}</p>
+
 
         <div
           class="py-2 mx-auto text-sm font-medium text-gray-600 tracking-tighter"
@@ -24,7 +26,7 @@
         >
         <button
           type="submit"
-          class=" shadow bg-green-600 hover:bg-teal-400 focus:outline-none  text-white font-bold mt-4 mb-8 mx-8 py-2 rounded"
+          class=" shadow bg-green-600 hover:bg-green-400 focus:outline-none  text-white font-bold mt-4 mb-8 mx-8 py-2 rounded"
         >
           Email me a verification code</button>
         </Form>
@@ -33,7 +35,7 @@
       <div v-else-if="step == 'otp'" >
         
         <Form @submit="verifyOtp" v-slot="{errors}" class="flex flex-col">
-          <h2 class="  font-semibold text-lg text-gray-700 mx-auto py-2">
+          <h2 class="  font-semibold text-lg text-green-700  mx-auto py-2">
           Verify your email address</h2
         >
         <h2 class="   text-gray-700 mx-auto py-2">
@@ -48,16 +50,17 @@
             :rules="otpRules"
             v-model="details.otp"
             type="email"
-            class="py-2 w-2/3 mx-auto block appearance-none p-2 text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
+            class="pt-4 w-1/3 mx-auto block appearance-none  font-medium text-gray-700 text-center outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
           />
           <p class="mx-auto text-sm font-semibold italic text-red-500">{{ errors.otp }}</p>
+          <p class=" mx-auto text-sm font-semibold italic text-red-500">{{apiErrors.otp}}</p>
 
         <div
           class="py-2 mx-auto text-sm font-medium text-gray-600 tracking-tighter text-opacity-50"
         >
           Your verification code may take a few moments to arrive. <br />
           Didn't receive a verification code?
-          <button type="submit" class="text-green-600 font-semibold pl-2 focus:outline-none"
+          <button type="submit" class="hover:text-green-800 text-green-600 font-semibold pl-2 focus:outline-none"
             >Resend</button
           ></div
         >
@@ -76,7 +79,7 @@
           :validation-schema="passwordSchema"
           class="flex flex-col"
         >
-                  <h2 class="  font-semibold text-lg text-gray-700 mx-auto py-2">
+                  <h2 class="  font-semibold text-lg text-green-700 mx-auto py-2">
  Enter new password</h2>
           <div class="grid grid-cols-5 pt-4 pb-4">
             <label
@@ -90,7 +93,7 @@
                 type="password"
                 name="password1"
                 v-model="details.password1"
-                class=" px-2 block appearance-none text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
+                class=" mr-10 block appearance-none text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
               />
 
               <p class="text-xs italic text-red-500">{{ errors.password1 }}</p>
@@ -108,7 +111,7 @@
                 type="password"
                 name="password2"
                 v-model="details.password2"
-                class=" px-2  block appearance-none text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
+                class=" mr-10  block appearance-none text-gray-700 outline-none border-b-2 border-gray-500 focus:border-gray-500 focus:bg-white "
               />
 
               <p class="text-xs italic text-red-500">{{ errors.password2 }}</p>
@@ -130,7 +133,9 @@
 
 <script>
 import { Form, Field } from "vee-validate";
+import BACKENDURL from "@/globalvariables";
 import * as yup from "yup";
+import axios from 'axios';
 export default {
   components: {
     Form,
@@ -156,24 +161,56 @@ export default {
           .oneOf([yup.ref("password1"), null], "Passwords must match"),
       }),
 
-      step: "otp",
+      step: "password",
       details: {
         email: "",
         otp: "",
         password1: "",
         password2: "",
       },
+      apiErrors:{
+        email: "",
+        otp:""
+      }
     };
   },
   methods: {
     sendOtp() {
+      this.apiErrors.email=""
+      axios.post(`${BACKENDURL}accounts/validate_email_forgot/`, {email: this.details.email})
+      .then((res)=> {
       this.step = "otp";
+      console.log(res)
+      })
+      .catch((err)=> {
+        if(err.response.status==404) this.apiErrors.email = "Email is not recognised" 
+        else console.log(err.response);
+      });
+
     },
     verifyOtp(){
-      this.step="password"
+            this.apiErrors.otp=""
+      axios.post(`${BACKENDURL}accounts/validate_otp_forgot/`, {email: this.details.email, otp: this.details.otp})
+      .then((res)=> {
+      this.step = "password";
+      console.log(res)
+      })
+      .catch((err)=> {
+       console.log(err.response);
+      });
     },
     savePassword() {
-      console.log("kitu");
+            axios.post(`${BACKENDURL}accounts/change_password_forgot/`, {email: this.details.email, otp: this.details.otp, password: this.details.password1})
+      .then((res)=> {
+      this.$router.push({
+        name: "Login"
+      })
+      console.log(res)
+      })
+      .catch((err)=> {
+       console.log(err.response);
+      });
+      
     },
   },
 };

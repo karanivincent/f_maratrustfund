@@ -36,23 +36,24 @@
  
                         <div class="mb-6 text-center">
                             <button
-                                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                                class="w-full px-4 py-2 font-bold text-white bg-green-600 rounded-full hover:bg-green-400 focus:outline-none focus:shadow-outline"
                                 type="submit">
                                 Sign In
                             </button>
                         </div>
                         <hr class="mb-6 border-t" />
                         <div class="text-center">
-                            <router-link to="/register" class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
+                            <router-link to="/register" class="inline-block text-sm text-green-600 align-baseline hover:text-green-400">
                                 Create an Account!
                             </router-link>
                         </div>
                         <div class="text-center">
-                            <router-link to='/reset-password' class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800">
+                            <router-link to='/reset-password' class="inline-block text-sm text-green-600 align-baseline hover:text-green-400">
                                 Forgot Password?
                             </router-link >
                         </div>
                 </Form>
+
                 </div>
             </div>
         </div>

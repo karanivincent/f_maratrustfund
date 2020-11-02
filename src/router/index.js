@@ -7,8 +7,14 @@ import MyProjects from '../components/MyProjects'
 import About from '../components/About'
 import Signup from '../components/Signup'
 import ResetPassword from '../components/ResetPassword'
+import ChangePassword from '../components/ChangePassword'
 
 const routes = [
+  {
+    path: '/',
+    name: ChangePassword,
+    component: ChangePassword
+  },
   {
     path: '/tenders',
     name: Home,

@@ -86,7 +86,7 @@
             <div class="mb-6 text-center">
               <button
                 @click="getOTP"
-                class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+                class="w-full px-4 py-2 font-bold text-white bg-green-600 rounded-full hover:bg-green-400 focus:outline-none focus:shadow-outline"
                 type="button"
               >
                 Next
@@ -116,12 +116,12 @@ Verify</button>
 
           <div class="px-8 text-gray-600">
             Already have an account?
-            <a
-              class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-              href="./forgot-password.html"
+            <router-link
+            to="/login"
+              class="inline-block  text-green-600 align-baseline hover:text-green-800"
             >
               Login
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
