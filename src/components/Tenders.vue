@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-auto bg-gray-100 mx-auto mt-4 pt-4 ">
+  <div class="w-full h-auto bg-gray-100 mx-auto  pt-4 ">
     <div class=" pb-8 ">
       <div class="card sm:w-2/3 mx-auto">
         <div class="card-header mx-auto text-left bg-white py-3 shadow-xs">

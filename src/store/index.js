@@ -1,11 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-
-const Testing = 'http://127.0.0.1:8000/api/';
-const BACKENDURL = Testing;
-
-// const pythonanywhere = 'https://vincentkarani.pythonanywhere.com/api/';
-// const BACKENDURL = pythonanywhere;
+import BACKENDURL from '@/globalvariables'
 
 
 export default createStore({
@@ -29,7 +24,7 @@ export default createStore({
   },
   actions: {
     async fetchProjects({ commit }) {
-      const response = await axios.get(BACKENDURL + 'projects/')
+      const response = await axios.get(BACKENDURL + '/api/projects/')
         .catch((error) => {
           console.log(error)
         })
@@ -40,7 +35,7 @@ export default createStore({
     async userProjects({ commit }) {
       var user = localStorage.getItem('user-detail')
       user = JSON.parse(user)
-      const response = await axios.post(`${BACKENDURL}my_projects/`,
+      const response = await axios.post(`${BACKENDURL}/api/my_projects/`,
         { user_id: 7 },
         { headers: { 'Authorization': `Token ${user.token}` } })
         .then((response) => commit('setUserProjects', response.data))
@@ -48,7 +43,7 @@ export default createStore({
     },
 
     async addProject({ commit }, newProject) {
-      const response = await axios.post(BACKENDURL + 'projects/', newProject)
+      const response = await axios.post(BACKENDURL + '/api/projects/', newProject)
         .catch((error) => {
           console.log(error)
         })
@@ -57,7 +52,7 @@ export default createStore({
     },
     async fetchCategories({ commit }) {
       const token = localStorage.getItem('user-token')
-      const response = await axios.get(BACKENDURL + 'categories/', {
+      const response = await axios.get(BACKENDURL + '/api/categories/', {
         headers: {
           'Authorization': `Token ${token}`
         }

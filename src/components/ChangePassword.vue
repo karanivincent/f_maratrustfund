@@ -72,6 +72,7 @@
 import * as yup from "yup";
 import { Form, Field } from "vee-validate";
 import axios from 'axios'
+import BACKENDURL from "@/globalvariables";
 
 export default {
   components: {
@@ -100,14 +101,15 @@ export default {
       changePassword(){
           var user = localStorage.getItem('user-detail')
       user = JSON.parse(user)
-          axios.post(`${BACKENDURL}accounts/change_password/`, this.details, { headers: { 'Authorization': `Token ${user.token}` } })
+          axios.put(`${BACKENDURL}accounts/change_password/`, this.details, { headers: { 'Authorization': `Token ${user.token}` } })
       .then((res)=> {
-      this.step = "otp";
+        this.$router.push({
+        name: "MyProjects"
+      })
       console.log(res)
       })
       .catch((err)=> {
-        if(err.response.status==404) this.apiErrors.email = "Email is not recognised" 
-        else console.log(err.response);
+        console.log(err)
       });
       }
   }

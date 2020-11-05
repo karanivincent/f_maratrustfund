@@ -3,10 +3,14 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+    './src/**/*.html',
+    './src/**/*.vue',
+    './src/**/*.jsx',
+  ],
   theme: {
     fontFamily: {
-      'sans': ['Segoe UI', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", 'sans-serif', "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+      'sans': ["sans-serif", 'Segoe UI', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Roboto', "Helvetica Neue", 'Arial', "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
     },
     extend: {},
   },
