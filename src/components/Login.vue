@@ -1,15 +1,12 @@
 <template>
-    <div class="container mx-auto">
-        <div class="flex justify-center px-6 my-12">
             <!-- Row -->
-            <div class="w-full xl:w-3/4 lg:w-11/12 flex">
          
                 <!-- Col -->
-                <div class="w-full lg:w-1/2 bg-white p-5 rounded-lg lg:rounded-l-none">
-                    <h3 class="pt-4 text-2xl text-center">Welcome Back!</h3>
+                <div class="mx-auto w-full sm:w-1/2 bg-white rounded-lg lg:rounded-l-none pb-10">
+                    <h3 class="pt-4 text-2xl font-semibold text-center text-gray-700">Login</h3>
 
                     <Form @submit="onSubmit" v-slot="{ errors }" :validation-schema="validationRules"
-                            class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
+                            class="mx-auto  px-8 pt-6 pb-4 bg-white rounded">
                         <div class="mb-4">
                             <label class="block mb-2 text-sm font-bold text-gray-700" for="username">
                                 Email
@@ -34,9 +31,11 @@
  
                         <div class="mb-6 text-center">
                             <button
-                                class="w-full px-4 py-2 font-bold text-white bg-green-600 rounded-full hover:bg-green-400 focus:outline-none focus:shadow-outline"
+                                class="flex justify-center mx-auto px-4 py-2 font-bold text-white bg-green-600 rounded hover:bg-green-400 focus:outline-none focus:shadow-outline"
                                 type="submit">
-                                Sign In
+                                <h3>Sign In</h3>
+                                <font-awesome-icon icon="sign-in-alt" class=" mt-1 mx-2" />
+
                             </button>
                         </div>
                         <hr class="mb-6 border-t" />
@@ -53,9 +52,6 @@
                 </Form>
 
                 </div>
-            </div>
-        </div>
-    </div>
 </template>
 
 <script>

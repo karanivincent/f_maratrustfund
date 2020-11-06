@@ -3,17 +3,19 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faSignInAlt, faArrowRight, faCalendarCheck, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-library.add(faUserSecret)
+library.add(faUser, faArrowRight, faCalendarCheck, faSignInAlt, faEnvelope)
 
 import "./assets/css/tailwind.css"
 
 
 
-createApp(App)
+const app = createApp(App)
     .use(store)
     .use(router)
-    .component('font-awesome-icon', FontAwesomeIcon)
-    .mount('#app')
+
+app.component('font-awesome-icon', FontAwesomeIcon)
+app.mount('#app')
+

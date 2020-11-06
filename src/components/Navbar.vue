@@ -1,8 +1,8 @@
 <template>
   <header
-    class="shadow-sm sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 "
+    class="shadow-sm sm:grid sm:grid-cols-4 sm:justify-between sm:items-center sm:px-4 sm:py-3 "
   >
-    <div class="flex items-center justify-between px-4 py-3 sm:p-0">
+    <div class=" sm:col-span-1 flex items-center justify-between px-2 py-3 sm:p-0">
       <div>
         <router-link to="/">
           <h3 class="font-bold text-gray-600 text-2xl">MaraTrustFunds</h3>
@@ -30,62 +30,66 @@
       </div>
     </div>
     <nav
+              @click="isOpen = !isOpen"
+
       :class="isOpen ? 'block' : 'hidden'"
-      class="px-2 pt-2 pb-4 sm:flex sm:p-0"
+      class="px-2 pt-2 pb-4 sm:flex  sm:p-0 sm:col-span-3"
     >
+      <div  class="sm:w-2/3  sm:flex sm:justify-center font-medium text-lg  text-gray-500 rounded  ">
       <router-link
         to="/"
-        class="mt-1 block px-2 py-1 text-gray-600 font-semibold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+        class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-700"
         >Home</router-link
       >
-            <router-link
+      <router-link
         to="/projects"
-        class="mt-1 block px-2 py-1 text-gray-600 font-semibold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+        class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-700"
         >Projects</router-link
       >
 
       <router-link
         to="/tenders"
-        class="mt-1 block px-2 py-1 text-gray-600 font-semibold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+        class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-700"
         >Tenders</router-link
       >
 
       <router-link
         to="/about"
-        class="mt-1 block px-2 py-1 text-gray-600 font-semibold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+        class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-700"
         >About Us</router-link
       >
       <router-link
         to="/contact-us"
-        class="mt-1 block px-2 py-1 text-gray-600 font-semibold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+        class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-700"
         >Contact Us</router-link
       >
-      <div class="login-section">
-        <div v-if="!loggedIn" class="flex flex-col sm:flex-row">
+      </div>
+      
+        <div v-if="!loggedIn" class="sm:w-1/3 flex flex-col sm:flex-row justify-end font-medium text-lg  text-gray-500   ">
           <router-link
             to="/login"
-            class="mt-1 inline-block px-4 py-1 text-gray-600  text-sm font-bold rounded hover:text-green-700 sm:mt-0 sm:ml-3"
+            class="mt-1 inline-block px-1 py-1  rounded hover:text-green-700 sm:mt-0 sm:ml-3"
             >Log in</router-link
           >
           <router-link
             to="/register"
-            class="mt-1 inline-block px-4 py-1 text-gray-600 text-sm font-bold rounded  hover:text-green-700 sm:mt-0 sm:ml-3"
+            class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-700 sm:mt-0 sm:ml-3"
             >Sign Up</router-link
           >
         </div>
-        <div v-else class="flex flex-col">
+        <div v-else class="sm:w-1/3 flex flex-col sm:flex-row   text-gray-500 rounded  ">
+
           <router-link
             to="/my-projects"
-            class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3"
+            class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-700 sm:mt-0 sm:ml-3"
             >My Projects</router-link
           >
           <router-link
             to="/about"
-            class="mt-1 block px-2 py-1 text-gray-700 font-semibold rounded hover:bg-gray-200 sm:mt-0 sm:ml-3"
+            class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-700 sm:mt-0 sm:ml-3"
             >Logout</router-link
           >
         </div>
-      </div>
     </nav>
   </header>
 </template>

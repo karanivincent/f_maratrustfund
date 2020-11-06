@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-screen bg-purple-100 mx-auto  pt-4">
+  <div class="w-full h-auto bg-purple-100 mx-auto  pt-4">
       <div class="flex flex-col sm:px-10">
           <div class=" mx-auto px-2 sm:w-3/5 sm:text-center">
               <h3 class=" font-semibold  text-gray-900 text-xl  sm:text-2xl  tracking-wide">  Awesome Features</h3>
