@@ -2,7 +2,7 @@
             <!-- Row -->
          
                 <!-- Col -->
-                <div class="mx-auto w-full sm:w-1/2 bg-white rounded-lg lg:rounded-l-none pb-10">
+                <div class="mx-auto w-full sm:w-1/2 bg-white rounded-lg lg:rounded-l-none pb-10 pt-12">
                     <h3 class="pt-4 text-2xl font-semibold text-center text-gray-700">Login</h3>
 
                     <Form @submit="onSubmit" v-slot="{ errors }" :validation-schema="validationRules"

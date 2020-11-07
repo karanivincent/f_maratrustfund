@@ -1,9 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Tenders from '../components/Tenders'
 import Projects from '../components/Projects'
 
 import Login from '../components/Login'
-import Home from '../components/Home'
 import ProjectDetails from '../components/ProjectDetails'
 import MyProjects from '../components/MyProjects'
 import About from '../components/About'
@@ -12,6 +10,7 @@ import ResetPassword from '../components/ResetPassword'
 import ChangePassword from '../components/ChangePassword'
 import ContactUs from '../components/ContactUs'
 import LatestTenders from '../components/LatestTenders'
+import Home from '../views/Home'
 
 const routes = [
   {
@@ -22,12 +21,12 @@ const routes = [
   {
     path: '/',
     name: Home,
-    component: LatestTenders
+    component: Home
   },
   {
     path: '/tenders',
     name: Home,
-    component: Tenders
+    component: LatestTenders
   },
   {
     path: '/login',

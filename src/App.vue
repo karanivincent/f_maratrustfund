@@ -1,6 +1,7 @@
 <template>
-  <div class="w-full h-screen ">
+  <div class="w-full h-full">
     <Navbar/>
+
     <router-view></router-view>
 
 
@@ -15,11 +16,13 @@ import Navbar from './components/Navbar';
 export default {
   components: {
     Navbar,
+    
   }
 
 }
 </script>
 
 <style>
+
 
 </style>

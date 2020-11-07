@@ -1,12 +1,12 @@
 <template>
-    <div class="w-full ">
+    <div class="w-full h-full ">
          
 
-        <div class="container mt-4 px-20">
+        <div class="container px-20">
             <div>
 
                 <div class="w-full flex">
-                    <h1 class=" font-light p-2 pl0 text-green-600 font-bold text-3xl">
+                    <h1 class="  p-2 pl0 text-green-600 font-bold text-3xl">
                         <span class="border-gray-400 border-b-4 ">About</span> us
                     </h1>
                 </div>
