@@ -35,111 +35,119 @@
           </div>
         </div>
       </section>
-      <section id="four" class="pt-6">
+      <section id="four" class="">
         <About />
       </section>
-      <section id="projects" class="pt-6">
+      <section id="projects" class="">
         <LatestProjects />
       </section>
-      <section id="two" class=" pt-10">
+      <section id="two" class="">
+        <div class=" h-screen flex flex-col justify-between ">
+        <div class=" px-10 py-20 w-2/3 mx-auto my-auto">
+          <h3   class=" font-semibold text-gray-700 text-4xl mx-auto text-center pb-4 tracking-wider">
+            Testimonials
+          </h3>
 
-          <div class=" h-screen mx-auto px-10 py-10 w-2/3 ">
-            <h3
-              class=" font-semibold text-gray-700 text-4xl mx-auto text-center pb-4 tracking-wider"
-            >
-              Testimonials</h3
-            >
-
-            <splide :options="options" class="">
-               <splide-slide>
-                <div class="flex flex-col pt-10">
-                    <div class="">
-                    <h3
-                      class="text-gray-800  text-center font-semibold tracking-wide "
-                      >George Mwaniki</h3
-                    >
-                    <h4 class=" text-green-800  py-2 text-center"
-                      >Mara Fruit Growers
-                    </h4>
-                  </div>
-
-                  <div
-                    class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
+          <splide :options="options" class="">
+            <splide-slide>
+              <div class="flex flex-col pt-10">
+                <div class="">
+                  <h3
+                    class="text-gray-800  text-center font-semibold tracking-wide "
+                    >George Mwaniki</h3
                   >
-                    <p>
-                      <span class=" font-semibold text-2xl text-green-600">“</span>
-                      Through the donations of the beehives, our group has been
-                      able to increase production of honey tenfolds. We have
-                      created employment for our members.
-                      <span class=" font-semibold text-2xl text-green-600">”</span>
-                    </p>
-                  </div>
-
+                  <h4 class=" text-green-800  py-2 text-center"
+                    >Mara Fruit Growers
+                  </h4>
                 </div>
-              </splide-slide>
-   
-                            <splide-slide>
-                <div class="flex flex-col pt-10">
-                    <div class="">
-                    <h3
-                      class="text-gray-800 text-center font-semibold tracking-wide "
-                      >Joseph Kuyoni</h3
+
+                <div
+                  class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
+                >
+                  <p>
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >“</span
                     >
-                    <h4 class=" text-green-800  py-2 text-center"
-                      >Maasai Beadworks
-                    </h4>
-                  </div>
-
-                  <div
-                    class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
-                  >
-                    <p>
-                      <span class=" font-semibold text-2xl text-green-600">“</span>
-                      We are grateful for the beads donations from Maasai Mara
-                      trust Funds, Through your generous hands we have been able
-                      to Increase our sales and provide a living for our
-                      families.
-                      <span class=" font-semibold text-2xl text-green-600">”</span>
-                    </p>
-                  </div>
-
-                </div>
-              </splide-slide>
-                           
-
-              <splide-slide>
-                <div class="flex flex-col pt-10">
-                    <div class="">
-                    <h3
-                      class="text-gray-800  text-center font-semibold tracking-wide "
-                      >George Leyian</h3
+                    Through the donations of the beehives, our group has been
+                    able to increase production of honey tenfolds. We have
+                    created employment for our members.
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >”</span
                     >
-                    <h4 class=" text-green-800  py-2 text-center"
-                      >Member, maasai mara Vision Welfare
-                    </h4>
-                  </div>
-
-                  <div
-                    class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
-                  >
-                    <p>
-                      <span class=" font-semibold text-2xl text-green-600">“</span>
-                      Through Maasai Trust Funds, Sekenani road was constructed
-                      and we are now able to transport our milk and meat to our
-                      local center. We are entirely grateful for this.
-                      <span class=" font-semibold text-2xl text-green-600">”</span>
-                    </p>
-                  </div>
-
+                  </p>
                 </div>
-              </splide-slide>
-            </splide>
-          </div>
+              </div>
+            </splide-slide>
+
+            <splide-slide>
+              <div class="flex flex-col pt-10">
+                <div class="">
+                  <h3
+                    class="text-gray-800 text-center font-semibold tracking-wide "
+                    >Joseph Kuyoni</h3
+                  >
+                  <h4 class=" text-green-800  py-2 text-center"
+                    >Maasai Beadworks
+                  </h4>
+                </div>
+
+                <div
+                  class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
+                >
+                  <p>
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >“</span
+                    >
+                    We are grateful for the beads donations from Maasai Mara
+                    trust Funds, Through your generous hands we have been able
+                    to Increase our sales and provide a living for our families.
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >”</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </splide-slide>
+
+            <splide-slide>
+              <div class="flex flex-col pt-10">
+                <div class="">
+                  <h3
+                    class="text-gray-800  text-center font-semibold tracking-wide "
+                    >George Leyian</h3
+                  >
+                  <h4 class=" text-green-800  py-2 text-center"
+                    >Member, maasai mara Vision Welfare
+                  </h4>
+                </div>
+
+                <div
+                  class=" text-gray-900 tracking-widest leading-9 text-opacity-75 text-lg text-center px-6 py-8 rounded-sm"
+                >
+                  <p>
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >“</span
+                    >
+                    Through Maasai Trust Funds, Sekenani road was constructed
+                    and we are now able to transport our milk and meat to our
+                    local center. We are entirely grateful for this.
+                    <span class=" font-semibold text-2xl text-green-600"
+                      >”</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </splide-slide>
+          </splide>
+        </div>
+
+        <hr class="my-6 " />
+
+        </div>
       </section>
-      <section id="three" class=" sectionthree pt-6">
+      <section id="three" class="">
         <LatestTenders />
       </section>
-
 
       <section id="five" class="pt-6">
         <ContactUs />
@@ -186,7 +194,6 @@ export default {
 }
 
 .splide__pagination__page.is-active {
-  background-color: #2F855A
-;
+  background-color: #2f855a;
 }
 </style>
