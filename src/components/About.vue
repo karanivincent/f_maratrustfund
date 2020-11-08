@@ -11,7 +11,7 @@
                     </h1>
                 </div>
                 <div class="w-full pb-8">
-                    <p class="tracking-wide text-lg p-6 text-gray-700">
+                    <p class="tracking-wide text-lg p-6 text-white">
                         The Mara Trust Funds is a Non-profit organisation aimed at ensuring a sustainable human a
                         sustainable human wildlife society.
 
