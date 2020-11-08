@@ -1,138 +1,60 @@
 <template>
-  <div class="w-full h-screen mx-auto  pt-4">
-    <div class="flex w-full flex-col ">
-      <div class=" sm:w-1/2 sm:text-center px-2 mx-auto mb-2">
-        <h3
-          class=" font-semibold  text-gray-800 text-xl  sm:text-2xl  tracking-wide pb-2"
-        >
-          Latest News</h3
-        >
-        <p class=" text-gray-800 text-opacity-50 ">
-          Et harum quidem rerum facilis est et expedita distinctio nam libero
-          tempore cum soluta nobis eligendi cumque.
-        </p>
-        <hr>
-      </div>
-      <div class="grid gap-6 grid-cols-3 sm:w-10/12 mx-auto">
-       
-        <div class="flex flex-col col-span-3 sm:col-span-1  shadow-md  ">
-          <div>
-            <img
-              src="smit-patel-dGMcpbzcq1I-unsplash.jpg"
-              class="sm:rounded  object-fill"
-            />
+  <div class="w-full h-auto mx-auto  pt-4">
+      <div class="flex flex-col sm:px-10">
+          <div class=" mx-auto px-2 sm:w-3/5 sm:text-center">
+              <h3 class=" font-semibold  text-gray-900 text-xl  sm:text-2xl  tracking-wide">  Awesome Features</h3>
+              <p class="text-gray-800  text-opacity-50">  Laudantium qui saepe eligendi laborum voluptatum, quis error dolorem vel quaerat ratione modi et magni quibusdam, provident possimus quasi, veniam ipsam ex.</p>
           </div>
-          <div
-            class="px-1 py-2 flex  uppercase text-sm text-gray-900 text-opacity-50"
-          >
-            <font-awesome-icon icon="calendar-check" class=" mt-1 mx-2" />
-            <div>
-              April 10 2020
-            </div>
+          <!-- start -->
+          <div class="flex pt-10 align-middle flex-wrap pb-6">
+              <div class="w-full sm:w-1/2 flex justify-end sm:pr-4 py-2">
+                    <img  src="smit-patel-dGMcpbzcq1I-unsplash.jpg"
+                     class="sm:rounded  sm:w-2/3 object-fill" /> 
+              </div>
+              <div class="w-full sm:w-1/2 flex flex-col justify-center px-2">
+                    <h3 class=" pb-2 text-gray-800 sm:text-2xl font-semibold ">Build community & conversion with our suite of social tool</h3>
+                    <p class="text-gray-800 text-opacity-50 leading-loose">Temporibus autem quibusdam et aut officiis debitis aut rerum a necessitatibus saepe eveniet ut et voluptates repudiandae sint molestiae non recusandae itaque.</p>
+                    <div class="py-3">
+                        <button class="py-3 px-8 bg-green-800 text-sm text-gray-200 font-semibold rounded">
+                            Read More
+                        </button>
+                    </div>
+                    
+              </div>
           </div>
-          <div class="px-1 py-1">
-            <h3 class=" font-semibold text-xl text-gray-800"
-              >Best Traveling Place</h3
-            >
-            <p class="text-opacity-50 text-gray-900"
-              >Integer ante arcu accumsan a consectetuer eget posuere mauris
-              praesent adipiscing phasellus ullamcorper ipsum rutrum punc.</p
-            >
+          <!-- end -->
+                    <!-- start -->
+          <div class="flex pt-10 align-middle flex-wrap pb-6">
+              <div class="w-full sm:w-1/2 flex justify-end sm:pr-4 py-2">
+                    <img  src="smit-patel-dGMcpbzcq1I-unsplash.jpg"
+                     class="sm:rounded  sm:w-2/3 object-fill" /> 
+              </div>
+              <div class="w-full sm:w-1/2 flex flex-col justify-center px-2">
+                    <h3 class=" pb-2 text-gray-800 sm:text-2xl font-semibold ">Build community & conversion with our suite of social tool</h3>
+                    <p class="text-gray-800 text-opacity-50 leading-loose">Temporibus autem quibusdam et aut officiis debitis aut rerum a necessitatibus saepe eveniet ut et voluptates repudiandae sint molestiae non recusandae itaque.</p>
+                    <div class="py-3">
+                        <button class="py-3 px-8 bg-green-800 text-sm text-gray-200 font-semibold rounded">
+                            Read More
+                        </button>
+                    </div>
+                    
+              </div>
           </div>
-          <div class="pt-4 pb-2">
-            <button
-              class=" px-1 text-green-800 font-semibold flex  tracking-wide"
-            >
-              <h3>Learn More</h3>
-              <font-awesome-icon icon="arrow-right" class=" mt-1 ml-2" />
-            </button>
-          </div>
+          <!-- end -->
 
           
-        </div>
-         <div class="flex flex-col col-span-3 sm:col-span-1  shadow-md  ">
-          <div>
-            <img
-              src="smit-patel-dGMcpbzcq1I-unsplash.jpg"
-              class="sm:rounded  object-fill"
-            />
-          </div>
-          <div
-            class="px-1 py-2 flex  uppercase text-sm text-gray-900 text-opacity-50"
-          >
-            <font-awesome-icon icon="calendar-check" class=" mt-1 mx-2" />
-            <div>
-              April 10 2020
-            </div>
-          </div>
-          <div class="px-1 py-1">
-            <h3 class=" font-semibold text-xl text-gray-800"
-              >Best Traveling Place</h3
-            >
-            <p class="text-opacity-50 text-gray-900"
-              >Integer ante arcu accumsan a consectetuer eget posuere mauris
-              praesent adipiscing phasellus ullamcorper ipsum rutrum punc.</p
-            >
-          </div>
-          <div class="pt-4 pb-2">
-            <button
-              class=" px-1 text-green-800 font-semibold flex  tracking-wide"
-            >
-              <h3>Learn More</h3>
-              <font-awesome-icon icon="arrow-right" class=" mt-1 ml-2" />
-            </button>
-          </div>
-
-          
-        </div>
-         <div class="flex flex-col col-span-3 sm:col-span-1  shadow-md  ">
-          <div>
-            <img
-              src="smit-patel-dGMcpbzcq1I-unsplash.jpg"
-              class="sm:rounded  object-fill"
-            />
-          </div>
-          <div
-            class="px-1 py-2 flex  uppercase text-sm text-gray-900 text-opacity-50"
-          >
-            <font-awesome-icon icon="calendar-check" class=" mt-1 mx-2" />
-            <div>
-              April 10 2020
-            </div>
-          </div>
-          <div class="px-1 py-1">
-            <h3 class=" font-semibold text-xl text-gray-800"
-              >Best Traveling Place</h3
-            >
-            <p class="text-opacity-50 text-gray-900"
-              >Integer ante arcu accumsan a consectetuer eget posuere mauris
-              praesent adipiscing phasellus ullamcorper ipsum rutrum punc.</p
-            >
-          </div>
-          <div class="pt-4 pb-2">
-            <button
-              class=" px-1 text-green-800 font-semibold flex  tracking-wide"
-            >
-              <h3>Learn More</h3>
-              <font-awesome-icon icon="arrow-right" class=" mt-1 ml-2" />
-            </button>
-          </div>
-
-          
-        </div>
-
-
-
-        
-        
 
       </div>
-    </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+
+}
 </script>
 
-<style></style>
+<style>
+
+
+</style>
