@@ -2,7 +2,7 @@
   <div class="w-full h-auto mx-auto  pt-4">
       <div class="flex flex-col sm:px-10">
           <div class=" mx-auto px-2 sm:w-3/5 sm:text-center">
-              <h3 class=" font-semibold  text-gray-900 text-xl  sm:text-2xl  tracking-wide">  Awesome Features</h3>
+              <h3 class=" font-semibold  text-gray-900 text-xl  sm:text-2xl  tracking-wide">  Available Tenders</h3>
               <p class="text-gray-800  text-opacity-50">  Laudantium qui saepe eligendi laborum voluptatum, quis error dolorem vel quaerat ratione modi et magni quibusdam, provident possimus quasi, veniam ipsam ex.</p>
           </div>
           <!-- start -->

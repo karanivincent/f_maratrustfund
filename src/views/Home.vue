@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="">
-      <section id="one" class=" ">
+      <section id="home" class=" ">
         <div
           :style="{
             'background-image':
@@ -22,6 +22,7 @@
                 Learn More</button
               >
               <button
+              @click=" printUser"
                 class="mx-2 border font-semibold px-8 py-2 rounded hover:bg-green hover:text-green-600 hover:border-green-600"
               >
                 <font-awesome-icon
@@ -35,13 +36,13 @@
           </div>
         </div>
       </section>
-      <section id="four" class="">
+      <section id="about" class="">
         <About />
       </section>
       <section id="projects" class="">
         <LatestProjects />
       </section>
-      <section id="two" class="">
+      <section id="testimonials" class="">
         <div class=" h-screen flex flex-col justify-between ">
         <div class=" px-10 py-20 w-2/3 mx-auto my-auto">
           <h3   class=" font-semibold text-gray-700 text-4xl mx-auto text-center pb-4 tracking-wider">
@@ -145,11 +146,9 @@
 
         </div>
       </section>
-      <section id="three" class="">
-        <LatestTenders />
-      </section>
 
-      <section id="five" class="pt-6">
+
+      <section id="contact" class="pt-6">
         <ContactUs />
       </section>
     </div>
@@ -160,7 +159,6 @@
 // @ is an alias to /src
 import About from "@/components/About";
 import ContactUs from "@/components/ContactUs";
-import LatestTenders from "@/components/LatestTenders";
 import LatestProjects from "../components/LatestProjects";
 import { Splide, SplideSlide } from "@splidejs/vue-splide";
 import "@splidejs/splide/dist/css/themes/splide-default.min.css";
@@ -169,10 +167,14 @@ export default {
   components: {
     About,
     ContactUs,
-    LatestTenders,
     LatestProjects,
     Splide,
     SplideSlide,
+  },
+  methods:{
+    printUser(){
+      console.log(this.$store.state.user)
+    }
   },
   data() {
     return {

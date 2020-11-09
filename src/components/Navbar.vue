@@ -39,32 +39,28 @@
     >
       <div
         v-scroll-spy-active
-        class="sm:w-2/3  sm:flex sm:justify-evenly font-medium   text-gray-100 rounded  "
+        class="sm:w-2/3  sm:flex sm:justify-evenly font-medium   text-gray-100 rounded cursor-pointer  "
       >
         <div
-          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500"
-          @click="ScrollTO('#one')"
+          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500 cursor-pointer"
+          @click="ScrollTO('#home')"
           >Home</div
         >
         <div
-          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500"
-          @click="ScrollTO('#two')"
-          >Projects</div
-        >
-        <div
-          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500"
-          @click="ScrollTO('#three')"
-          >Tenders</div
-        >
-        <div
-          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500"
-          @click="ScrollTO('#four')"
+          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500 cursor-pointer"
+          @click="ScrollTO('#about')"
           >About Us</div
         >
         <div
-          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500"
-          @click="ScrollTO('#five')"
-          >Five</div
+          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500 cursor-pointer"
+          @click="ScrollTO('#projects')"
+          >Tenders</div
+        >
+      
+        <div
+          class="mt-1 block px-1 py-1  sm:mt-0 sm:ml-3 hover:text-green-500 cursor-pointer"
+          @click="ScrollTO('#contact')"
+          >Contact Us</div
         >
         <!-- <router-link
           to="/"
@@ -102,7 +98,7 @@
       </div>
 
       <div
-        v-if="!loggedIn"
+        v-if="!$store.state.user"
         class="sm:w-1/3 flex flex-col sm:flex-row justify-end font-medium text-lg  text-gray-100   "
       >
         <router-link
@@ -118,17 +114,17 @@
       </div>
       <div
         v-else
-        class="sm:w-1/3 flex flex-col sm:flex-row   text-gray-100 rounded  "
-      >
+        class="sm:w-1/3 flex flex-col sm:flex-row justify-end font-medium text-lg  text-gray-100   "
+        >
         <router-link
           to="/my-projects"
           class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-500 sm:mt-0 sm:ml-3"
           >My Projects</router-link
         >
-        <router-link
-          to="/about"
-          class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-500 sm:mt-0 sm:ml-3"
-          >Logout</router-link
+        <div
+          @click="logout"
+          class="mt-1 inline-block px-1 py-1  rounded  hover:text-green-500 sm:mt-0 sm:ml-3 cursor-pointer"
+          >Logout</div
         >
       </div>
     </nav>
@@ -143,6 +139,7 @@ export default {
       isOpen: false,
     };
   },
+
   mounted: () => {
     window.onscroll = function() {
       onwindowScroll();
@@ -162,6 +159,10 @@ export default {
     }
   },
   methods: {
+    logout(){
+      this.$store.dispatch('logout')
+    },
+
     ScrollTO(element) {
       if(this.$route.path!=='/'){
         this.$router.push({path:`/${element}`})

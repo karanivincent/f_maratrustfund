@@ -18,12 +18,12 @@ const routes = [
   },
   {
     path: '/',
-    name: Home,
+    name: 'Home',
     component: Home
   },
   {
     path: '/tenders',
-    name: Home,
+    name: 'Tenders',
     component: LatestTenders
   },
   {
