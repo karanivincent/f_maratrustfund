@@ -5,13 +5,13 @@ import store from './store'
 import { library } from '@fortawesome/fontawesome-svg-core'
 
 import {
-    faUser, faSignInAlt, faArrowRight, faCalendarCheck, faEnvelope,
+    faUser, faSignInAlt, faArrowRight, faCalendarCheck, faEnvelope, faSpinner,
     faLink, faClock, faPhoneVolume, faMapMarker, faPlay, faUsers, faUserCircle
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faUser, faArrowRight, faCalendarCheck, faSignInAlt, faUsers, faUserCircle,
-    faEnvelope, faLink, faClock, faPhoneVolume, faMapMarker, faPlay)
+    faEnvelope, faLink, faClock, faPhoneVolume, faMapMarker, faPlay, faSpinner)
 
 import "./assets/css/tailwind.css"
 import Scrollspy from 'vue2-scrollspy';

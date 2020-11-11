@@ -52,9 +52,8 @@ export default createStore({
             'Authorization': `Token ${this.state.user.token}`
           },
         })
-        .then((res) => {
+        .then(() => {
 
-          console.log(`then: ${res}`)
           localStorage.removeItem("user-detail")
           commit("logout")
 
@@ -74,7 +73,6 @@ export default createStore({
       commit("setProjects", response.data);
       return response.data;
     },
-
     async userProjects({ commit }) {
       var user = localStorage.getItem("user-detail");
       user = JSON.parse(user);
@@ -89,7 +87,6 @@ export default createStore({
           console.log(response);
         });
     },
-
     async addProject({ commit }, newProject) {
       const response = await axios
         .post(BACKENDURL + "/api/projects/", newProject)
@@ -99,6 +96,7 @@ export default createStore({
       commit("addProject", response.data);
       return response.data;
     },
+
     async fetchCategories({ commit }) {
       const token = localStorage.getItem("user-token");
       const response = await axios

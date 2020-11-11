@@ -141,15 +141,17 @@ export default {
   },
 
   mounted: () => {
+    console.log(this.$route)
     window.onscroll = function() {
-      onwindowScroll();
+      onwindowScroll(this.$route);
     };
     var navbar = document.getElementById("navbar");
-    function onwindowScroll() {
+    function onwindowScroll(route) {
       if (
         document.body.scrollTop > 50 ||
-        document.documentElement.scrollTop > 50
+        document.documentElement.scrollTop > 50 
       ) {
+        console.log(route.path)
         navbar.classList.add("sm:bg-gray-800");
         navbar.classList.add("shadow-sm");
       } else {
@@ -158,9 +160,14 @@ export default {
       }
     }
   },
+  created(){
+    console.log(this.$route.name)
+  },
   methods: {
     logout(){
-      this.$store.dispatch('logout')
+          console.log(this.$route.name)
+
+      // this.$store.dispatch('logout')
     },
 
     ScrollTO(element) {
